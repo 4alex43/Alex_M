@@ -33,12 +33,23 @@ def password_check(passwd):
 # Main method
 def main():
     os.system("")
+    res =""
+    if sys.argv[1] == "-f":
+        if len(sys.argv) == 2:
+            print("Error don't have a path")
+        else:
+            f = open(sys.argv[2], 'r')
 
-    res = password_check(sys.argv[1])
+            res = password_check(f.readline())
+            f.close()
+    else:
+        res = password_check(sys.argv[1])
 
     if (res == 0):
+#Dont need in the h.w        #print(f"{str(sys.argv[1])}\n",file=open('password.txt', 'a+'))#add string to file in new line everyTime
         print('\033[0;32m' + str(res) + '\033[0m')
     else:
+
         print('\033[91m' + str(res) + '\033[0m')
 
 
