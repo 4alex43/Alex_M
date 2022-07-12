@@ -37,9 +37,9 @@ def main():
     res = password_check(sys.argv[1])
 
     if (res == 0):
-        print('\033[0;32m' + str(res) + '\033[0m')
+        print('\033[0;32m' + "Valid password" + '\033[0m')
     else:
-        print('\033[91m' + str(res) + '\033[0m')
+        print('\033[91m' + "Invalid password" + '\033[0m')
 
 
 main()
