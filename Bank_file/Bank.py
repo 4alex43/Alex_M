@@ -1,3 +1,5 @@
+from typing import Set
+
 from BusinessBankAccount import *
 from StudentBankAccount import *
 from BankAccount import *
@@ -34,7 +36,7 @@ class Bank(BankAccount):
 
         return f"{student} {bank} {business}"
 
-    def load_and_parse_init_data(self, file):
+    def load_and_parse_init_data(self):
 
         """
         Function for load and parse data from XML file to dictionary
@@ -69,6 +71,7 @@ class Bank(BankAccount):
         accounts_for_adding = self.load_and_parse_init_data()
 
         for tag in accounts_for_adding.findall('.account'):
+
 
             if tag.attrib['type'] == 'BankAccount':
                 bank_Account = BankAccount('None Name', '123456789', '054-0000000', 'test123@sela.co.il')
@@ -107,7 +110,6 @@ class Bank(BankAccount):
                     if el.tag == 'balance':
                         student_Account.Balance = el.text
                 if not student_Account.is_Valid_info():
-                    print(student_Account.Id)
                     raise student_Account.is_Valid_info()
                 self.bank['StudentBankAccount'].append(student_Account)
 
@@ -118,13 +120,13 @@ class Bank(BankAccount):
                 for el in tag.findall('.//'):
 
                     if el.tag == 'name':
-                        business_account.name = el.text
+                        business_account.Name = el.text
                     if el.tag == 'id':
-                        business_account.id = el.text
+                        business_account.Id = el.text
                     if el.tag == 'phone':
-                        business_account.phone = el.text
+                        business_account.Phone_number = el.text
                     if el.tag == 'email':
-                        business_account.email = el.text
+                        business_account.Email_address = el.text
                     if el.tag == 'company_Name':
                         business_account.company_Name = el.text
                     if el.tag == 'Tax_Number':
@@ -179,8 +181,8 @@ class Bank(BankAccount):
         balances = []
         for k, v in self.bank.items():
             for objc in v:
-                balances.append(objc.Balance)
-                avg += objc.Balance
+                balances.append(int(objc.Balance))
+                avg += int(objc.Balance)
 
         prcntl_90 = avg * 0.9
         prcntl_10 = avg * 0.1
@@ -204,6 +206,9 @@ class Bank(BankAccount):
             d = []
 
 
+
+
+
 def main():
     b = Bank()
 
@@ -211,12 +216,14 @@ def main():
         ET.parse(sys.argv[1])
         b.load_and_parse_init_data()
         b.add_new_account()
-        print(b)
-        b.deposit_by_user_id("012345678", 1000)
-        b.deposit_by_user_id("223344551", 100)
-        b.deposit_by_user_id("888888881", 100000)
-        res = b.calc_balance_statistics()
-        print(res)
+        # print(b)
+        # b.deposit_by_user_id("012345678", 1000)
+        # b.deposit_by_user_id("223344551", 100)
+        # b.deposit_by_user_id("888888881", 100000)
+        # res = b.calc_balance_statistics()
+        # print(b.calc_balance_statistics())
+
+
     else:
         raise TypeError("Something wrong, please check the file or path")
 

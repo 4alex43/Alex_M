@@ -5,15 +5,16 @@ from  PersonalInfo import *
 
 
 class BankAccount(PersonalInfo):
-    """
-    Constructor
-    :param Name:
-    :param Id:
-    :param Phone_number:
-    :param Email_address:
-    :param Balance:
-    """
+
     def __init__(self, Name: str, Id: str, Phone_number: str, Email_address: str, Balance: int = 0):
+        """
+        Constructor
+        :param Name:
+        :param Id:
+        :param Phone_number:
+        :param Email_address:
+        :param Balance:
+        """
         super().__init__(Name, Id, Phone_number, Email_address)
         self.Balance = Balance
         if not self.is_Valid_info():
@@ -101,12 +102,18 @@ class BankAccount(PersonalInfo):
 
         if len(self.Id) != 9:
             raise TypeError("Invalid id")
+        else:
+            for char in self.Id:
+                if not char.isdigit():
+                    raise TypeError("Invalid id")
+
 
         return True
 
 
 def main():
-    u1 = BankAccount("alex mircea", "123456780", "054-1232366", "ma242005@gmail.com", 1000)
+    u1 = BankAccount("alex mircea", "123451788", "054-1232366", "ma242005@gmail.com", 1000)
+    print(u1)
     print(u1)
     # u1.Withdraw(100)
     # u1.Deposit(10000)
