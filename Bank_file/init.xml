@@ -1,0 +1,43 @@
+<accounts>
+    <account type ="StudentBankAccount">
+        <personalInfo>
+            <name>Katia Barak</name>
+            <id>012341678</id>
+            <phone>0523-555444</phone>
+            <email>katiab@sela.co.il</email>
+        </personalInfo>
+        <college>Sela</college>
+    </account>
+    <account type ="BankAccount">
+        <personalInfo>
+            <name>Tal Cohen</name>
+            <id>223345511</id>
+            <phone>0546-222333</phone>
+            <email>talc@gamil.com</email>
+        </personalInfo>
+    </account>
+        <account type ="StudentBankAccount">
+        <personalInfo>
+            <name>alex mircea</name>
+            <id>012345678</id>
+            <phone>0523-555444</phone>
+            <email>alex@sela.co.il</email>
+        </personalInfo>
+        <college>Sela!!!</college>
+    </account>
+            <account type ="BusinessBankAccount">
+        <personalInfo>
+            <name>tow pac</name>
+            <id>123456789</id>
+            <phone>0523-554544</phone>
+            <email>2pac@songs.co.il</email>
+        </personalInfo>
+        <company_Name> Testing QA </company_Name>
+        <Tax_Number> 214132 </Tax_Number>
+        <restriction>"no limit" </restriction>
+        <Violates_the_law> False</Violates_the_law>
+        <Fee_debts> True</Fee_debts>
+        <address> new york city</address>
+        <Balance> 100000 </Balance>
+    </account>
+</accounts>
